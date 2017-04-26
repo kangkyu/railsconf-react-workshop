@@ -1,3 +1,17 @@
+function SelectedOption(props) {
+  var items = ['All', 'Authors', 'Posts'];
+  return (
+    <ul className="items">
+      { items.map((opt) =>
+        <li style={opt === props.selectedOption ? { color: '#d0021b'} : null}
+          onClick={props.onSelect.bind(null, opt)}
+          key={opt}>{opt}
+        </li>)
+      }
+    </ul>
+  )
+}
+
 class Directory extends React.Component {
   constructor(props) {
     super();
@@ -14,17 +28,11 @@ class Directory extends React.Component {
   }
 
   render() {
-    var items = ['All', 'Authors', 'Posts'];
     return (
       <div>
-        <ul className="items">
-          { items.map((opt) =>
-            <li style={opt === this.state.selectedOption ? { color: '#d0021b'} : null}
-              onClick={this.updateSelection.bind(null, opt)}
-              key={opt}>{opt}
-            </li>)
-          }
-        </ul>
+        <SelectedOption selectedOption={this.state.selectedOption}
+          onSelect={this.updateSelection}
+        />
       </div>
     )
   }
