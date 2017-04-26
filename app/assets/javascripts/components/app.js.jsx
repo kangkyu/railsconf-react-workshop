@@ -1,9 +1,12 @@
 class App extends React.Component {
   render() {
     return (
-      <h2 className="header center">
-        Quick Reads for {this.props.name}
-      </h2>
+      <div>
+        <h2 className="header center">
+          Quick Reads for {this.props.name}
+        </h2>
+        <Directory />
+      </div>
     )
   }
 }
