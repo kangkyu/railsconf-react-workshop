@@ -2,10 +2,10 @@ class App extends React.Component {
   render() {
     return (
       <h2 className="header center">
-        Quick Reads
+        Quick Reads for {this.props.name}
       </h2>
     )
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<App name="Joseph" />, document.getElementById('root'));
